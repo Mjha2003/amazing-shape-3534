@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>Login</title>
+        <style>
+            #parent{
+                height: 100%;
+                width: 100%;
+                display: flex;
+            }
+            #ylw{
+                height: 100%;
+                width: 1%;
+                background-color: #ffe01b;
+            }
+            #box{
+                height: 100%;
+                width: 30%;
+            }
+            #image{
+                height: 100%;
+                width: 69%;
+            }
+            #image>img{
+                height: 100%;
+                width: 100%;
+            }
+            #logo{
+                height: 45px;
+                width: 50px;
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+            #logo>img{
+                height: 100%;
+                width: 100%;
+            } 
+            form{
+                height: 520px;
+                width: 90%;
+                margin: auto;
+                margin-top: 20px;
+            }
+            form>h1{
+                font-size: 35px;
+                font-weight: lighter;
+                margin-bottom: -15px;
+                margin-top: 1px;
+            }
+            form>p{
+                font-size: 19px;
+                color: rgb(27, 27, 27);
+            }
+            label {
+               font-size: 19px;
+               font-weight: bold;
+             }
+             input[type="text"],
+             select,
+             textarea {
+                width: 100%;
+                padding: 15px;
+                border: 1px solid rgb(169, 166, 166);
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 8px;
+                margin-bottom: 18px;
+                resize: vertical;
+             }
+            input[type="password"],
+             select,
+             textarea {
+                width: 100%;
+                padding: 15px;
+                border: 1px solid rgb(169, 166, 166);
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 8px;
+                margin-bottom: 30px;
+                resize: vertical;
+            }
+            form>h3{
+                margin-top: 5px;
+                font-size: 17px;
+                color: rgb(27, 27, 27); 
+                font-weight: lighter;
+            }
+            #btn{
+                background-color: teal;
+                color: rgb(255, 255, 255);
+                border: 0;
+                height: 50px;
+                width: 100%;
+                margin-bottom: 30px;
+        }
+        #last{
+            height: 40px;
+            width: 100%;
+        }
+        #last>h3{
+                font-size: 13px;
+                color: rgb(59, 59, 59); 
+                font-weight: lighter; 
+        }
+        form>h3{
+            text-align: center;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+        form>h4{
+            text-align: center;
+            font-weight: lighter;
+            font-size: 20px;
+            color: teal;
+        }
+        label{
+            font-weight: lighter;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="parent">
+            <div id="ylw"></div>
+            <div id="box">
+                <div id="logo">
+                    <img src="https://login.mailchimp.com/release/1.1.1e50f5e5c68898d541162415193a0da75d0ce183c/images/brand_assets/logos/mc-freddie-dark.svg" alt="">
+                </div>
+                <form>
+                    <h1>Log In</h1>
+                    <p>Need a Mailchimp account?Create an account</p>
+                    <label for=""> Username</label><br />
+                    <input id="name" type="text"/><br />
+                    <label for="">Password </label><br />
+                    <input id="password" type="password"/><br/>
+                    <input id="btn" type="submit" value="Log In" />
+                    <h3>Keep me logged in</h3>
+                    <h4>Forgot username? · Forgot password?</h4>
+                </form>
+                <div id="last">
+                <h3>©2001–2022 All Rights Reserved. Mailchimp® is a registered trademark of The Rocket Science Group, LLC. Cookie Preferences, Privacy, and Terms.</h3>
+            </div>
+            </div>
+            <div id="image">
+                <img src="https://cdn-images.mailchimp.com/billboards/phpza0iJx.jpeg" alt="">
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",loginfunc)
+    let arr=JSON.parse(localStorage.getItem("store_obj")) || [];
+    function loginfunc(){
+        event.preventDefault()
+            if(arr.length==0){
+                alert("No user till now");
+                return;
+            } 
+        let name=document.querySelector("#name").value
+        let password=document.querySelector("#password").value
+        let obj={
+              name:name,
+              password:password,
+            };
+            let flag=false;
+            arr.forEach(function(ele){
+               if(ele.name==obj.name && ele.password==obj.password){
+                flag=true;
+                localStorage.setItem("login",JSON.stringify(ele));
+                alert("login successfull");
+                window.location.href="???????"
+               } 
+            })
+            if(flag==false){
+                alert("user does not exist");
+            }      
+            };
+</script>
