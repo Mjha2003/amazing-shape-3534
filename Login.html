@@ -1,17 +1,28 @@
 <html>
     <head>
-        <title>Signup</title>
+        <title>Login</title>
         <style>
-            #back{
-                height: auto;
+            #parent{
+                height: 100%;
                 width: 100%;
+                display: flex;
+            }
+            #ylw{
+                height: 100%;
+                width: 1%;
                 background-color: #ffe01b;
             }
-             #page{
-                height: auto;
+            #box{
+                height: 100%;
+                width: 30%;
+            }
+            #image{
+                height: 100%;
+                width: 69%;
+            }
+            #image>img{
+                height: 100%;
                 width: 100%;
-                background-color: white;
-                margin-left: 17px;
             }
             #logo{
                 height: 45px;
@@ -25,8 +36,9 @@
             } 
             form{
                 height: 520px;
-                width: 45%;
+                width: 90%;
                 margin: auto;
+                margin-top: 20px;
             }
             form>h1{
                 font-size: 35px;
@@ -46,36 +58,24 @@
              select,
              textarea {
                 width: 100%;
-                padding: 12px;
+                padding: 15px;
                 border: 1px solid rgb(169, 166, 166);
                 border-radius: 4px;
                 box-sizing: border-box;
                 margin-top: 8px;
-                margin-bottom: 16px;
+                margin-bottom: 18px;
                 resize: vertical;
              }
-                input[type="email"],
-             select,
-             textarea {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid rgb(169, 166, 166);
-                border-radius: 4px;
-                box-sizing: border-box;
-                margin-top: 8px;
-                margin-bottom: 16px;
-                resize: vertical;
-            }
             input[type="password"],
              select,
              textarea {
                 width: 100%;
-                padding: 12px;
+                padding: 15px;
                 border: 1px solid rgb(169, 166, 166);
                 border-radius: 4px;
                 box-sizing: border-box;
                 margin-top: 8px;
-                margin-bottom: 16px;
+                margin-bottom: 30px;
                 resize: vertical;
             }
             form>h3{
@@ -89,62 +89,88 @@
                 color: rgb(255, 255, 255);
                 border: 0;
                 height: 50px;
-                width: 18%;
+                width: 100%;
+                margin-bottom: 30px;
         }
         #last{
             height: 40px;
-            width: 50%;
-            margin-top: 80px;
-            margin-left: 30px;
+            width: 100%;
         }
         #last>h3{
-            margin-top: 5px;
-                font-size: 15px;
+                font-size: 13px;
                 color: rgb(59, 59, 59); 
                 font-weight: lighter; 
+        }
+        form>h3{
+            text-align: center;
+            font-weight: lighter;
+            font-size: 20px;
+        }
+        form>h4{
+            text-align: center;
+            font-weight: lighter;
+            font-size: 20px;
+            color: teal;
+        }
+        label{
+            font-weight: lighter;
         }
         </style>
     </head>
     <body>
-        <div id="back">
-            <div id="page">
+        <div id="parent">
+            <div id="ylw"></div>
+            <div id="box">
                 <div id="logo">
                     <img src="https://login.mailchimp.com/release/1.1.1e50f5e5c68898d541162415193a0da75d0ce183c/images/brand_assets/logos/mc-freddie-dark.svg" alt="">
                 </div>
                 <form>
-                    <h1>Sign up for Mailchimp</h1>
-                    <p>Create a free account or log in</p>
-                    <label for="">Email </label><br />
-                    <input id="email" type="email"/><br/>
+                    <h1>Log In</h1>
+                    <p>Need a Mailchimp account?Create an account</p>
                     <label for=""> Username</label><br />
                     <input id="name" type="text"/><br />
                     <label for="">Password </label><br />
                     <input id="password" type="password"/><br/>
-                    <h3>I don't want to receive emails about Mailchimp and related Intuit product and feature updates, marketing best practices, and promotions from Mailchimp. </h3>
-                    <h3>By creating an account, you agree to our Terms and have read and acknowledge the Global Privacy Statement.</h3>
-                    <input id="btn" type="submit" />
+                    <input id="btn" type="submit" value="Log In" />
+                    <h3>Keep me logged in</h3>
+                    <h4>Forgot username? · Forgot password?</h4>
                 </form>
                 <div id="last">
-                    <h3>©2001–2022 All Rights Reserved. Mailchimp® is a registered trademark of The Rocket Science Group, LLC. Cookie Preferences, Privacy, and Terms.</h3>
-                </div>
+                <h3>©2001–2022 All Rights Reserved. Mailchimp® is a registered trademark of The Rocket Science Group, LLC. Cookie Preferences, Privacy, and Terms.</h3>
+            </div>
+            </div>
+            <div id="image">
+                <img src="https://cdn-images.mailchimp.com/billboards/phpza0iJx.jpeg" alt="">
             </div>
         </div>
     </body>
 </html>
 <script>
-    document.querySelector("form").addEventListener("submit",myfunc);
+    document.querySelector("form").addEventListener("submit",loginfunc)
     let arr=JSON.parse(localStorage.getItem("store_obj")) || [];
-    function myfunc(event){
-        event.preventDefault();
-        let email=document.querySelector("#email").value
+    function loginfunc(){
+        event.preventDefault()
+            if(arr.length==0){
+                alert("No user till now");
+                return;
+            } 
         let name=document.querySelector("#name").value
         let password=document.querySelector("#password").value
         let obj={
-              email:email,
               name:name,
               password:password,
             };
-        arr.push(obj);
-        localStorage.setItem("store_obj",JSON.stringify(arr))
-    }
+            let flag=false;
+            arr.forEach(function(ele){
+               if(ele.name==obj.name && ele.password==obj.password){
+                flag=true;
+                localStorage.setItem("login",JSON.stringify(ele));
+                alert("login successfull");
+                window.location.href="???????"
+               } 
+            })
+            if(flag==false){
+                alert("user does not exist");
+            }      
+            };
 </script>
