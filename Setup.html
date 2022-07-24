@@ -1,0 +1,337 @@
+<html>
+    <head>
+        <title>Account Setup</title>
+    </head>
+    <style>
+        #parent{
+                height: auto;
+                width: 100%;
+                display: flex;
+                background-color: #ffe01b;
+            }
+            #ylw{
+                height: auto;
+                width: 1%;
+                background-color: #ffe01b;
+            }
+            #box{
+                height: 100%;
+                width: 80%;
+                background-color: white;
+            }
+            #head{
+                height: 13%;
+                width: 100%;
+                border: 1px solid rgb(211, 202, 202);
+            }
+            #head>h1{
+                margin-top: 10px;
+                font-size: 25px;
+                font-weight: lighter;
+                margin-bottom: 5px;
+                margin-left: 70px;
+            }
+            #gap{
+                height: 25%;
+                width: 50%;
+                display: flex;
+                margin-left: 70px;
+                gap: 15px;
+                margin-top: -14px;
+            }
+            #gap>p{
+                font-size: 16px;
+                font-weight: lighter;
+                color: rgb(141, 138, 138);
+            }
+            #selection{
+                display: flex;
+                gap: 15px;
+                height: 5%;
+                width: 40%;
+                margin-top: 20px;
+                margin-left: 110px;
+            }
+            #selection>p{
+                font-size: 18px;
+                font-weight: lighter;
+                color: rgb(141, 138, 138);
+            }
+            #premium{
+                height: 370px;
+                width: 87%;
+                margin: auto;
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                border: 1px solid rgb(202, 196, 196);
+            }
+            #premium>div{
+                border: 1px solid rgb(202, 196, 196);
+            }
+            #box>h3{
+                margin-left: 110px;
+                color: teal;
+                font-size: 20px;
+            }
+            #bill{
+                height: 110px;
+                width: 87%;
+                margin: auto;
+                background-color: rgb(228, 222, 222);
+                border: 1px solid rgb(202, 196, 196);
+            }
+            #bill1{
+                height: 170px;
+                width: 87%;
+                margin: auto;
+                border: 1px solid rgb(202, 196, 196);
+            }
+            #bill>h1{
+                margin-left: 25px;
+                font-weight: lighter;
+            }
+            #bill>h4{
+                margin-top: -15px;
+                margin-left: 25px;
+                font-size: 20px;
+                font-weight: lighter;
+            }
+            #plan{
+                height: 20px;
+                width: 95%;
+                margin-top: 10px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            #bill1>h2{
+                margin-top: 30px;
+                margin-left: 18px;
+                font-size: 16px;
+                font-weight: lighter;
+            }
+            #bill1>h3{
+                margin-top: -5px;
+                margin-left: 18px;
+                font-size: 16px;
+                font-weight: lighter;
+            }
+            button{
+                height: 45px;
+                width: 95%;
+                margin-left: 18px;
+                background-color: teal;
+                color: white;
+                border: 0px;
+            }
+            #first>div{
+                margin-top:50px;
+                text-align: center;
+            }
+            #first>div>h6{
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #first>div>h1{
+                margin-top: -35px;
+                font-size: 60px;
+                font-weight: lighter;
+            }
+            #first>div>p{
+                margin-top: -45px;
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #first>div>h4{
+                margin-top: 45px;
+                font-size: 18px;
+            }
+            #first>h1{
+                font-weight: lighter;
+                margin-left: 10px;
+            }
+            #first>p{
+                font-weight: lighter;
+                margin-left: 10px;
+                font-size: 16px;
+            }
+            #second>div{
+                margin-top:50px;
+                text-align: center;
+            }
+            #second>div>h6{
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #second>div>h1{
+                margin-top: -35px;
+                font-size: 60px;
+                font-weight: lighter;
+            }
+            #second>div>p{
+                margin-top: -45px;
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #second>div>h4{
+                margin-top: 45px;
+                font-size: 18px;
+            }
+            #second>h1{
+                font-weight: lighter;
+                margin-left: 10px;
+            }
+            #second>p{
+                font-weight: lighter;
+                margin-left: 10px;
+                font-size: 16px;
+                margin-top: -18px;
+            }
+            #third>div{
+                margin-top:50px;
+                text-align: center;
+            }
+            #third>div>h6{
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #third>div>h1{
+                margin-top: -35px;
+                font-size: 60px;
+                font-weight: lighter;
+            }
+            #third>div>p{
+                margin-top: -45px;
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #third>div>h4{
+                margin-top: 45px;
+                font-size: 18px;
+            }
+            #third>h1{
+                font-weight: lighter;
+                margin-left: 10px;
+            }
+            #third>p{
+                font-weight: lighter;
+                margin-left: 10px;
+                font-size: 16px;
+            }
+            #fourth>div{
+                margin-top:50px;
+                text-align: center;
+            }
+            #fourth>div>h6{
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #fourth>div>h1{
+                margin-top: -35px;
+                font-size: 60px;
+                font-weight: lighter;
+            }
+            #fourth>div>p{
+                margin-top: -45px;
+                font-size: 18px;
+                font-weight: lighter;
+            }
+            #fourth>div>h4{
+                margin-top: 45px;
+                font-size: 18px;
+            }
+            #fourth>h1{
+                font-weight: lighter;
+                margin-left: 10px;
+            }
+            #fourth>p{
+                font-weight: lighter;
+                margin-left: 10px;
+                font-size: 16px;
+            }
+    </style>
+    <body>
+        <div id="parent">
+            <div id="ylw"></div>
+            <div id="box">
+                <div id="head">
+                    <h1>Account Set Up</h1>
+                    <div id="gap">
+                      <p>Plan</p>
+                      <p>Profile</p>
+                      <p>Address</p>
+                      <p>Contacts</p>
+                      <p>Import brand</p>
+                      <p>Customize</p>
+                      <p>Fnish</p>
+                </div>
+                </div>
+                <div id="selection">
+                    <p>Selection</p>
+                    <p>Payment</p>
+                    <p>Confirmation</p>
+                </div>
+                <div id="premium">
+                    <div id="first">
+                        <h1>Premium</h1>
+                        <p>Advanced features for pros who need more customization.</p>
+                        <div>
+                            <h6>You'll pay</h6>
+                            <h1>₹23000</h1>
+                            <p>a month</p>
+                            <h4>with 10,000 contacts</h4>
+                        </div>
+                    </div>
+                    <div id="second">
+                        <h1>Standard</h1>
+                        <p>Better insights for growing bussiness that want more customers.</p>
+                        <div>
+                            <h6>You'll pay</h6>
+                            <h1>₹1150</h1>
+                            <p>a month</p>
+                            <h4>with 500 contacts</h4>
+                        </div>
+                    </div>
+                    <div id="third">
+                        <h1>Essentials</h1>
+                        <p>Must-have features for email seners who want added support.</p>
+                        <div>
+                            <h6>You'll pay</h6>
+                            <h1>₹770</h1>
+                            <p>a month</p>
+                            <h4>with 500 contacts</h4>
+                        </div>
+                    </div>
+                    <div id="fourth">
+                        <h1>Free</h1>
+                        <p>All the basics for bussiness that are just getting started.</p>
+                        <div>
+                            <h6>You pay</h6>
+                            <h1>₹0</h1>
+                            <p>a month</p>
+                            <h4>2,000 contacts maximum</h4>
+                        </div>
+                    </div>
+                </div>
+                <h3>Compare Plan Features</h3>
+                <div id="bill">
+                    <h1>Purchase Summary</h1>
+                    <h4>Billed in Indian Rupee</h4>
+                </div>
+                <div id="bill1">
+                    <div id="plan">
+                        <p>Free plan</p>
+                        <p>₹0.00 / month</p>
+                    </div>
+                    <h2>2,000 contacts*</h2>
+                    <h3>10,000 email sends*</h3>
+                    <button>Next</button>
+                </div>
+            </div>
+            <div id="flower"></div>
+        </div>
+    </body>
+</html>
